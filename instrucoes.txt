@@ -1,16 +1,17 @@
-
 "Um milhão de reais em barras de ouro que valem mais do que dinheiro"
 O show do milhão foi um show famoso no final da década de 90, apresentado por Silvio Santos. Para saber mais, veja https://pt.wikipedia.org/wiki/Show_do_Milh%C3%A3o e procure vídeos do show no youtube.
 Este exercício tem como base a estrutura do show, mas foi simplificado para que seja possível trabalhar os conceitos desta disciplina. Caso tenha dúvidas sobre esta proposta, recomendo que assista aos vídeos!
 O jogo consiste em uma sequência de questões de múltipla escolha com quatro opções de resposta, apenas uma sendo a correta. Caso o jogador escolha a opção correta, ele avança no jogo, caso contrário, ele perde.
 Por hora, o jogo deve conter 8 questões: 4 fáceis, 3 médias e 1 difícil. As questões devem ser apresentadas ao jogador nesta ordem de dificuldade e devem ser sorteadas de uma reserva de questões. Esta reserva deve contém, pelo menos, o triplo de questões para cada tipo de dificuldade. As fáceis valem 1000 pontos, as médias 3000 pontos e a difícil vale 987000 pontos.
-As respostas das questões não podem vir sempre na mesma ordem. Recomenda-se que elas tenham suas ordens sorteadas aleatóriamente.
-
+As respostas das questões não podem vir sempre na mesma ordem. Recomenda-se que elas tenham suas ordens sorteadas aleatoriamente.
+ 
 O jogador pode:
-
+ 
 Escolher uma opção de resposta: o jogador pode escolher uma opção e após confirmá-la, deve ser informado se a resposta está correta ou não. Se estiver correta, o jogador deve ir para a próxima questão. O valor da questão deve ser somado ao seu montante atual. Caso estiver errado ele perde o jogo.
 Pular a questão: Caso esta opção for a escolhida, a questão atual deve ser trocada por uma nova de mesmo nível de dificuldade. Esta opção pode ser usada três 3 vezes durante uma partida.
 Eliminar uma resposta errada: Caso esta opção for a escolhida, deve-se eliminar, de forma aleatória, uma resposta errada.
 Eliminar duas resposta errada: Caso esta opção for a escolhida, deve-se eliminar, de forma aleatória, duas resposta errada.
-Desistir do jogo: Caso esta opção for a escolhida, o jogo é encerrado e o jogador termina com a metade dos pontos que possuia no momento que desistiu. 
+Desistir do jogo: Caso esta opção for a escolhida, o jogo é encerrado e o jogador termina com a metade dos pontos que possuía no momento que desistiu. 
 Observações: Este código DEVE ser feito em java e usar da lógica proposta pela orientação a objetos.
+ 
+ 
