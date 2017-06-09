@@ -1,125 +1,86 @@
 import java.util.*;
- 
+
 class Main {
   public static void main(String[] args) {
-    BancoDeQuestoes banco = new BancoDeQuestoes();
-    while(banco.aindaTemQuestoesFaceis()){
-      Questao facil = banco.sortearQuestaoFacil();
-      System.out.println(facil.enunciado);
-    }
+    Jogo j = new Jogo();
+    j.jogar();
   }
 }
- 
-class Questao{
-  public String enunciado;
-}
- 
-class BancoDeQuestoes{
- 
-  private ArrayList<Questao> faceis;
-  private ArrayList<Questao> medias;
-  private ArrayList<Questao> dificeis;
- 
-  public BancoDeQuestoes(){
-    this.faceis = new ArrayList<Questao>();
-    this.medias = new ArrayList<Questao>();
-    this.dificeis = new ArrayList<Questao>();
+
+class Jogo{
+  Fase atual;
+  ArrayList<Fase> fases =new ArrayList<Fase>();
+  Jogador jogador;
+  
+  public Jogo(){
     
-    this.criarQuestoesFaceis();
-    this.criarQuestoesMedias();
-    this.criarQuestoesDificeis();
+    jogador = new Jogador();
+    jogador.vidas = 3;
+    jogador.pontos = 0;
+    
+    criarFase("2+2",4);
+    criarFase("2+10",12);
+    criarFase("2+2+2",6);
+    criarFase("2x20",40);
+    criarFase("4x20",80);
+    criarFase("1x20",20);
+    criarFase("4x20",80);
+    
   }
   
-  public Questao sortearQuestaoFacil(){
-     Random random = new Random();
-     int i = random.nextInt(this.faceis.size());
-     Questao sorteada = this.faceis.remove(i);
-     
-     return sorteada;
-  }
-  public Questao sortearQuestaoMedia(){
-    Random random = new Random();
-     int i = random.nextInt(this.medias.size());
-     Questao sorteada = this.medias.remove(i);
-     
-     return sorteada;
-  }
-  public Questao sortearQuestaoDificil(){
-    Random random = new Random();
-     int i = random.nextInt(this.dificeis.size());
-     Questao sorteada = this.dificeis.remove(i);
-     
-     return sorteada;
+  public void jogar(){
+    
+    this.atual = this.fases.remove(0);
+    
+    while(this.atual != null){
+      
+      System.out.println(this.atual.pergunta);
+      System.out.println("digite a resposta:");
+      
+      Scanner scanner = new Scanner(System.in);
+      String s = scanner.nextLine();
+      int i = Integer.parseInt(s);
+      
+      if(i != this.atual.resposta){
+        jogador.tirarUmaVida();
+        System.out.println("errou!");
+      }else{
+        System.out.println("resposta correta!");
+        jogador.pontos++;
+        if(this.fases.size()>0){
+          this.atual = this.fases.remove(0);
+        }else{
+          this.atual = null;
+        }
+      }
+    }
+    System.out.println("fim de jogo");
+    System.out.println("você acertou "+jogador.pontos+" questoes.");
   }
   
-  public void criarQuestoesFaceis(){
-    Questao q1 = new Questao();
-    q1.enunciado = "Esta é a questao facil 1";
-    
-    this.faceis.add(q1);
-    
-    Questao q2 = new Questao();
-    q2.enunciado = "Esta é a questao facil 2";
-    
-    this.faceis.add(q2);
-    
-    Questao q3 = new Questao();
-    q3.enunciado = "Esta é a questao facil 3";
-    
-    this.faceis.add(q3);
-    
+  public void criarFase(String p, int i){
+    Fase f = new Fase();
+    f.pergunta = p;
+    f.resposta = i;
+    fases.add(f);
   }
-  public void criarQuestoesMedias(){
-    Questao q1 = new Questao();
-    q1.enunciado = "Esta é uma questao media 2";
-    
-    this.medias.add(q1);
-    
-    Questao q2 = new Questao();
-    q2.enunciado = "Esta é a questao media 2";
-    
-    this.medias.add(q2);
-  }
-  public void criarQuestoesDificeis(){
-    Questao q1 = new Questao();
-    q1.enunciado = "Esta é uma questao dificil 1";
-    
-    this.dificeis.add(q1);
-    
-    Questao q2 = new Questao();
-    q2.enunciado = "Esta é uma questao dificil 2";
-    
-    this.dificeis.add(q2);
-  }
- 
-  public boolean aindaTemQuestoesFaceis(){
-	  if(this.faceis.size() == 0){
-	    return false;
-	  } 
-    else{
-      return true;
-    }
-  }
-public boolean aindaTemQuestoesMedias(){
-  if(this.faceis.size() == 0){
-	    return false;
-	  } 
-    else{
-      return true;
-    }
+  
 }
- 
-public boolean aindaTemQuestoesDificeis(){
-  if(this.faceis.size() == 0){
-	    return false;
-	  } 
-    else{
-      return true;
-    }
+
+class Fase{
+    String pergunta;
+    int resposta;
 }
- 
+
+class Jogador{
+  int vidas;
+  int pontos;
+  
+  public Jogador(){
+    
+  }
+  
+  public void tirarUmaVida(){
+    this.vidas--;
+  }
 }
- 
- 
- 
- 
