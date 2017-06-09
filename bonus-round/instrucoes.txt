@@ -1,0 +1,3 @@
+1) Crie mais 3 perguntas.
+2) Faça com que o jogador possa pular uma pergunta ao digitar pular (somente uma vez).
+3) Faça com que o jogador perca o jogo caso ele erre 2 perguntas.
